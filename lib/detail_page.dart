@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/articles.dart';
+import 'package:flutter_news_app/webview_page.dart';
 
 class DetailPage extends StatelessWidget {
   static const routeName = '/detail_page';
@@ -44,7 +45,10 @@ class DetailPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 12.0),
                   child: ElevatedButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, WebViewPage.routeName,
+                            arguments: articles.url);
+                      },
                       icon: const Icon(Icons.open_in_browser),
                       label: const Text('Baca selengkapnya SAMMM??')),
                 )

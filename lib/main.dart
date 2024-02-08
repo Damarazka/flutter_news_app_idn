@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news_app/articles.dart';
 import 'package:flutter_news_app/detail_page.dart';
 import 'package:flutter_news_app/main_page.dart';
+import 'package:flutter_news_app/webview_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         MainPage.routeName: (context) => const MainPage(),
         DetailPage.routeName: (context) => DetailPage(
             articles: ModalRoute.of(context)?.settings.arguments as Articles),
+        WebViewPage.routeName: (context) => WebViewPage(
+            url: ModalRoute.of(context)?.settings.arguments as String),
+        
       },
     );
   }
