@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/articles.dart';
+import 'package:flutter_news_app/detail_page.dart';
 
 class MainPage extends StatelessWidget {
   static const routeName = '/main_page';
@@ -36,5 +37,8 @@ Widget _buildArticleItem(BuildContext context, Articles articles) {
     ),
     title: Text(articles.title),
     subtitle: Text(articles.author),
+    onTap: () {
+      Navigator.pushNamed(context, DetailPage.routeName, arguments: articles);
+    },
   );
 }
