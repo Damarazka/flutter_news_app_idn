@@ -13,8 +13,7 @@ class MainPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: FutureBuilder(
-          future:
-              DefaultAssetBundle.of(context).loadString('articles.json'),
+          future: DefaultAssetBundle.of(context).loadString('assets/articles.json'),
           builder: (context, snapshot) {
             final List<Articles> articles = parsedArticles(snapshot.data);
             return ListView.builder(
@@ -29,9 +28,12 @@ class MainPage extends StatelessWidget {
 
 Widget _buildArticleItem(BuildContext context, Articles articles) {
   return ListTile(
-    leading: Image.network(articles.urlToImage,
-        width: 100,
-        errorBuilder: (context, error, stackTrace) => const Icon(Icons.error)),
+    leading: SizedBox(
+      width: 100,
+      child: Image.network(articles.urlToImage,
+          errorBuilder: (ctx, error, _) =>
+              const Icon(Icons.error)),
+    ),
     title: Text(articles.title),
     subtitle: Text(articles.author),
   );
